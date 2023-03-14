@@ -93,6 +93,13 @@ function browser() {
   });
 }
 
+// tarefas concluidas
+function end(cb){
+  console.log('tarefas concluidas')
+  return cb()
+}
+gulp.task('taskend', end);
+
 // Tarefa para iniciar o browser-sync
 gulp.task('browser-sync', browser);
 
@@ -109,5 +116,5 @@ gulp.task('watch', watch);
 // Tarefa padrão do Gulp, que inicia o watch e o browser-sync
 gulp.task(
   'default',
-  gulp.parallel('watch', 'browser-sync', 'sass', 'cssminify', 'mainjs','imagesminify'),
+  gulp.parallel('watch', 'browser-sync', 'sass', 'cssminify', 'mainjs','imagesminify', 'taskend'),
 );
